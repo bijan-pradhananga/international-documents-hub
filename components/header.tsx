@@ -108,7 +108,7 @@ export function Header() {
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.name, item.href)}
-                className={`text-sm font-medium transition-colors hover:text-blue-600 focus-ring ${
+                className={`text-sm font-medium transition-colors hover:text-blue-600 focus:outline-none ${
                   activeSection === item.name.toLowerCase()
                     ? "text-blue-600 border-b-2 border-blue-600 pb-1"
                     : "text-gray-700"
@@ -122,7 +122,7 @@ export function Header() {
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
             <Button
-              className="bg-blue-600 hover:bg-blue-700 text-white btn-hover focus-ring"
+              className="bg-blue-600 hover:bg-blue-700 text-white btn-hover focus:outline-none"
               onClick={() => handleNavClick("Contact", "#contact")}
             >
               Get Quote
@@ -132,7 +132,7 @@ export function Header() {
           {/* Mobile menu trigger */}
           <Sheet open={mobileMenuOpen} onOpenChange={() => dispatch(toggleMobileMenu())}>
             <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon" className="focus-ring">
+              <Button variant="ghost" size="icon" className="focus:outline-none">
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
@@ -153,7 +153,7 @@ export function Header() {
                   <button
                     key={item.name}
                     onClick={() => handleNavClick(item.name, item.href)}
-                    className={`text-lg font-medium transition-colors hover:text-blue-600 py-2 text-left focus-ring ${
+                    className={`text-lg font-medium transition-colors hover:text-blue-600 py-2 text-left focus:outline-none ${
                       activeSection === item.name.toLowerCase()
                         ? "text-blue-600 border-l-4 border-blue-600 pl-4"
                         : "text-gray-700"
@@ -165,7 +165,7 @@ export function Header() {
 
                 <div className="pt-4 border-t">
                   <Button
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white btn-hover focus-ring"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white btn-hover focus:outline-none"
                     onClick={() => handleNavClick("Contact", "#contact")}
                   >
                     Get Quote
