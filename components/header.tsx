@@ -9,7 +9,7 @@ import { toggleMobileMenu, setActiveSection } from "@/lib/features/ui/uiSlice"
 import { useEffect } from "react"
 
 const navigationItems = [
-  { name: "Home", href: "#home" },
+  { name: "Home", href: "/" },
   { name: "Services", href: "#services" },
   { name: "About", href: "#about" },
   { name: "Contact", href: "#contact" },
@@ -45,12 +45,16 @@ export function Header() {
   }, [activeSection, dispatch])
 
   const handleNavClick = (section: string, href: string) => {
+    if (href.startsWith("/")) {
+      window.location.href = href
+      return
+    }
+
     dispatch(setActiveSection(section.toLowerCase()))
     if (mobileMenuOpen) {
       dispatch(toggleMobileMenu())
     }
 
-    // Smooth scroll to section
     const element = document.getElementById(section.toLowerCase())
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
@@ -95,28 +99,38 @@ export function Header() {
             <Image
               src="/logo.png"
               alt="International Documents Hub"
-              width={180}
-              height={60}
-              className="h-12 w-auto"
+              width={220}
+              height={73}
+              className="h-16 w-auto"
               priority
             />
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {navigationItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => handleNavClick(item.name, item.href)}
-                className={`text-sm font-medium transition-colors hover:text-blue-600 focus:outline-none ${
-                  activeSection === item.name.toLowerCase()
-                    ? "text-blue-600 border-b-2 border-blue-600 pb-1"
-                    : "text-gray-700"
-                }`}
-              >
-                {item.name}
-              </button>
-            ))}
+            {navigationItems.map((item) =>
+              item.href.startsWith("/") ? (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-medium transition-colors hover:text-blue-600 focus:outline-none text-gray-700"
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <button
+                  key={item.name}
+                  onClick={() => handleNavClick(item.name, item.href)}
+                  className={`text-sm font-medium transition-colors hover:text-blue-600 focus:outline-none ${
+                    activeSection === item.name.toLowerCase()
+                      ? "text-blue-600 border-b-2 border-blue-600 pb-1"
+                      : "text-gray-700"
+                  }`}
+                >
+                  {item.name}
+                </button>
+              ),
+            )}
           </nav>
 
           {/* CTA Button */}
@@ -143,25 +157,36 @@ export function Header() {
                   <Image
                     src="/logo.png"
                     alt="International Documents Hub"
-                    width={150}
-                    height={50}
-                    className="h-10 w-auto"
+                    width={180}
+                    height={60}
+                    className="h-12 w-auto"
                   />
                 </div>
 
-                {navigationItems.map((item) => (
-                  <button
-                    key={item.name}
-                    onClick={() => handleNavClick(item.name, item.href)}
-                    className={`text-lg font-medium transition-colors hover:text-blue-600 py-2 text-left focus:outline-none ${
-                      activeSection === item.name.toLowerCase()
-                        ? "text-blue-600 border-l-4 border-blue-600 pl-4"
-                        : "text-gray-700"
-                    }`}
-                  >
-                    {item.name}
-                  </button>
-                ))}
+                {navigationItems.map((item) =>
+                  item.href.startsWith("/") ? (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="text-lg font-medium transition-colors hover:text-blue-600 py-2 text-left focus:outline-none text-gray-700"
+                      onClick={() => dispatch(toggleMobileMenu())}
+                    >
+                      {item.name}
+                    </Link>
+                  ) : (
+                    <button
+                      key={item.name}
+                      onClick={() => handleNavClick(item.name, item.href)}
+                      className={`text-lg font-medium transition-colors hover:text-blue-600 py-2 text-left focus:outline-none ${
+                        activeSection === item.name.toLowerCase()
+                          ? "text-blue-600 border-l-4 border-blue-600 pl-4"
+                          : "text-gray-700"
+                      }`}
+                    >
+                      {item.name}
+                    </button>
+                  ),
+                )}
 
                 <div className="pt-4 border-t">
                   <Button
