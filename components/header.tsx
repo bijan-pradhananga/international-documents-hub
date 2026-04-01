@@ -64,28 +64,28 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       {/* Top contact bar */}
-      <div className="bg-blue-600 text-white py-2">
+      <div className="bg-blue-600 text-white py-2 overflow-x-hidden">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col sm:flex-row justify-between items-center text-sm gap-2">
-            <div className="flex items-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-between items-center text-xs sm:text-sm gap-2 flex-wrap">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-4 w-full sm:w-auto">
               <div
-                className="flex items-center gap-1 cursor-pointer hover:text-blue-200 transition-colors"
+                className="flex items-center gap-1 cursor-pointer hover:text-blue-200 transition-colors whitespace-nowrap"
                 onClick={() => (window.location.href = "tel:+977015927859")}
               >
-                <Phone className="h-3 w-3" />
-                <span>+977-01-5927859, +977-9823597859</span>
+                <Phone className="h-3 w-3 flex-shrink-0" />
+                <span className="truncate">+977-01-5927859</span>
               </div>
               <div
-                className="hidden md:flex items-center gap-1 cursor-pointer hover:text-blue-200 transition-colors"
+                className="hidden md:flex items-center gap-1 cursor-pointer hover:text-blue-200 transition-colors whitespace-nowrap"
                 onClick={() => (window.location.href = "mailto:internationaldocshub@gmail.com")}
               >
-                <Mail className="h-3 w-3" />
-                <span>internationaldocshub@gmail.com</span>
+                <Mail className="h-3 w-3 flex-shrink-0" />
+                <span className="truncate">internationaldocshub@gmail.com</span>
               </div>
             </div>
-            <div className="flex items-center gap-1">
-              <MapPin className="h-3 w-3" />
-              <span>Sankhamul Marga, Kathmandu-10, Nepal</span>
+            <div className="flex items-center gap-1 whitespace-nowrap text-xs sm:text-sm">
+              <MapPin className="h-3 w-3 flex-shrink-0" />
+              <span className="truncate">Kathmandu, Nepal</span>
             </div>
           </div>
         </div>
