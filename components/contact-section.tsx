@@ -12,11 +12,18 @@ import { useState } from "react"
 import { useAppDispatch, useAppSelector } from "@/lib/hooks"
 import { setLoading } from "@/lib/features/ui/uiSlice"
 
-const contactInfo = [
+type ContactDetail = string | { label: string; url: string }
+
+const contactInfo: {
+  icon: any
+  title: string
+  details: ContactDetail[]
+  description: string
+}[] = [
   {
     icon: Phone,
     title: "Phone Numbers",
-    details: ["+977-01-5927859", "+977-9823597859"],
+    details: ["+977-01-5927859", "+977-9823597859", "+977-9828783291", "+977-9817858200"],
     description: "Call us for immediate assistance",
   },
   {
@@ -28,7 +35,12 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Office Location",
-    details: ["Sankhamul Marga, Kathmandu-10, Nepal"],
+    details: [
+      {
+        label: "Sankhamul Marga, Kathmandu-10, Nepal",
+        url: "https://maps.app.goo.gl/61UfUddpHY7cCqhF7?g_st=ac",
+      },
+    ],
     description: "Visit our office for in-person consultation",
   },
   {
@@ -171,25 +183,41 @@ export function ContactSection() {
                       <div className="flex-1">
                         <h4 className="font-semibold text-gray-900 mb-2">{info.title}</h4>
                         <div className="space-y-1 mb-2">
-                          {info.details.map((detail, idx) => (
-                            <p
-                              key={idx}
-                              className={`text-gray-700 font-medium ${
-                                info.title === "Phone Numbers" || info.title === "Email Address"
-                                  ? "cursor-pointer hover:text-blue-600 transition-colors"
-                                  : ""
-                              }`}
-                              onClick={() => {
-                                if (info.title === "Phone Numbers") {
-                                  handlePhoneCall(detail)
-                                } else if (info.title === "Email Address") {
-                                  handleEmailClick(detail)
-                                }
-                              }}
-                            >
-                              {detail}
-                            </p>
-                          ))}
+                          {info.details.map((detail, idx) => {
+                            if (info.title === "Office Location" && typeof detail !== "string" && detail.url && detail.label) {
+                              return (
+                                <a
+                                  key={idx}
+                                  href={detail.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-700 font-medium underline hover:text-blue-900 transition-colors"
+                                >
+                                  {detail.label}
+                                </a>
+                              )
+                            } else {
+                              return (
+                                <p
+                                  key={idx}
+                                  className={`text-gray-700 font-medium ${
+                                    info.title === "Phone Numbers" || info.title === "Email Address"
+                                      ? "cursor-pointer hover:text-blue-600 transition-colors"
+                                      : ""
+                                  }`}
+                                  onClick={() => {
+                                    if (info.title === "Phone Numbers") {
+                                      handlePhoneCall(detail as string)
+                                    } else if (info.title === "Email Address") {
+                                      handleEmailClick(detail as string)
+                                    }
+                                  }}
+                                >
+                                  {typeof detail === "string" ? detail : (detail.label || "")}
+                                </p>
+                              )
+                            }
+                          })}
                         </div>
                         <p className="text-sm text-gray-600">{info.description}</p>
                       </div>
