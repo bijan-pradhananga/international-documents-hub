@@ -101,7 +101,7 @@ export function Header() {
               alt="International Documents Hub"
               width={220}
               height={73}
-              className="h-16 w-auto"
+              className="h-18 w-auto"
               priority
             />
           </Link>
