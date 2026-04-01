@@ -22,7 +22,7 @@ const services = [
 const contactInfo = [
   {
     icon: Phone,
-    text: "+977-01-5927859, +977-9823597859",
+    text: "+977-01-5927859, +977-9823597859, +977-9828783291, +977-9817858200",
     href: "tel:+977015927859",
   },
   {
@@ -48,17 +48,17 @@ export function Footer() {
       {/* Newsletter Section */}
       <div className="border-b border-gray-800">
         <div className="container mx-auto px-4 py-12">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-            <div className="text-center lg:text-left">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
+            <div className="text-center lg:text-left w-full lg:w-auto">
               <h3 className="text-2xl font-bold mb-2">Stay Updated</h3>
               <p className="text-gray-400">Get the latest updates on visa requirements and travel information.</p>
             </div>
-            <div className="flex w-full lg:w-auto max-w-md gap-2">
+            <div className="flex w-full lg:w-auto lg:max-w-md gap-2">
               <Input
                 placeholder="Enter your email"
-                className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-400"
+                className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-400 min-w-0"
               />
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white flex-shrink-0">
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </div>
@@ -160,7 +160,9 @@ export function Footer() {
       <div className="border-t border-gray-800">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-gray-400 text-sm">© 2024 International Documents Hub. All rights reserved.</p>
+            <p className="text-gray-400 text-sm">
+              © {new Date().getFullYear()} International Documents Hub. All rights reserved.
+            </p>
             <div className="flex items-center gap-6 text-sm">
               <Link href="#" className="text-gray-400 hover:text-white transition-colors">
                 Privacy Policy
