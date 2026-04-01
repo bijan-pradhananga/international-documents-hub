@@ -95,19 +95,19 @@ export function HeroSection() {
           </div>
 
           {/* Right Content - Hero Image */}
-          <div className="relative">
-            <div className="relative z-10">
+          <div className="relative flex justify-center lg:justify-end">
+            <div className="relative z-10 w-full max-w-[500px]">
               <Image
                 src="/professional-business-person-with-passport-and-doc.png"
                 alt="Professional document consultation"
                 width={500}
                 height={600}
-                className="rounded-2xl shadow-2xl"
+                className="rounded-2xl shadow-2xl w-full h-auto"
                 priority
               />
 
-              {/* Floating Stats Card */}
-              <Card className="absolute -bottom-6 -left-6 p-6 bg-white shadow-xl border-0">
+              {/* Floating Stats Card - Responsive */}
+              <Card className="absolute -bottom-6 -left-4 sm:-left-6 p-5 sm:p-6 bg-white shadow-xl border-0 hidden md:block">
                 <div className="grid grid-cols-2 gap-4 text-center">
                   {stats.slice(0, 2).map((stat, index) => (
                     <div key={index}>
@@ -118,8 +118,8 @@ export function HeroSection() {
                 </div>
               </Card>
 
-              {/* Floating Success Badge */}
-              <Card className="absolute -top-6 -right-6 p-4 bg-green-50 border-green-200">
+              {/* Floating Success Badge - Responsive */}
+              <Card className="absolute -top-6 -right-4 sm:-right-6 p-4 bg-green-50 border-green-200 hidden md:block">
                 <div className="flex items-center gap-2">
                   <CheckCircle className="h-6 w-6 text-green-500" />
                   <div>
@@ -128,10 +128,34 @@ export function HeroSection() {
                   </div>
                 </div>
               </Card>
+
+              {/* Mobile Version - Shown only on small screens */}
+              <div className="md:hidden mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                <Card className="p-5 bg-white shadow-xl border-0 text-center">
+                  <div className="grid grid-cols-2 gap-4">
+                    {stats.slice(0, 2).map((stat, index) => (
+                      <div key={index}>
+                        <div className="text-2xl font-bold text-blue-600">{stat.number}</div>
+                        <div className="text-sm text-gray-600">{stat.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                </Card>
+
+                <Card className="p-4 bg-green-50 border-green-200 text-center">
+                  <div className="flex items-center justify-center gap-2">
+                    <CheckCircle className="h-6 w-6 text-green-500" />
+                    <div>
+                      <div className="font-semibold text-green-700">99% Success Rate</div>
+                      <div className="text-sm text-green-600">Visa Applications</div>
+                    </div>
+                  </div>
+                </Card>
+              </div>
             </div>
 
             {/* Background Decoration */}
-            <div className="absolute inset-0 bg-blue-200 rounded-2xl transform rotate-6 scale-105 opacity-20"></div>
+            <div className="absolute inset-0 bg-blue-200 rounded-2xl transform rotate-6 scale-105 opacity-20 hidden lg:block"></div>
           </div>
         </div>
 
