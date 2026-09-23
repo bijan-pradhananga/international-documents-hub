@@ -27,8 +27,8 @@ const contactInfo = [
   },
   {
     icon: Mail,
-    text: "internationaldocshub@gmail.com",
-    href: "mailto:internationaldocshub@gmail.com",
+    text: "info@intdocshub.com",
+    href: "mailto:info@intdocshub.com",
   },
   {
     icon: Globe,

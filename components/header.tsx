@@ -77,10 +77,10 @@ export function Header() {
               </div>
               <div
                 className="hidden md:flex items-center gap-1 cursor-pointer hover:text-blue-200 transition-colors whitespace-nowrap"
-                onClick={() => (window.location.href = "mailto:internationaldocshub@gmail.com")}
+                onClick={() => (window.location.href = "mailto:info@intdocshub.com")}
               >
                 <Mail className="h-3 w-3 flex-shrink-0" />
-                <span className="truncate">internationaldocshub@gmail.com</span>
+                <span className="truncate">info@intdocshub.com</span>
               </div>
             </div>
             <div className="flex items-center gap-1 whitespace-nowrap text-xs sm:text-sm">
@@ -208,10 +208,10 @@ export function Header() {
                   </div>
                   <div
                     className="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition-colors"
-                    onClick={() => (window.location.href = "mailto:internationaldocshub@gmail.com")}
+                    onClick={() => (window.location.href = "mailto:info@intdocshub.com")}
                   >
                     <Mail className="h-4 w-4" />
-                    <span>internationaldocshub@gmail.com</span>
+                    <span>info@intdocshub.com</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <MapPin className="h-4 w-4" />

@@ -29,7 +29,7 @@ const contactInfo: {
   {
     icon: Mail,
     title: "Email Address",
-    details: ["internationaldocshub@gmail.com"],
+    details: ["info@intdocshub.com"],
     description: "Send us your queries anytime",
   },
   {
