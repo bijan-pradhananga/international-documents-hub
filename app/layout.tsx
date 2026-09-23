@@ -6,7 +6,7 @@ import "./globals.css"
 import { ReduxProvider } from "@/components/providers/redux-provider"
 
 export const metadata: Metadata = {
-  title: "International Documents Hub - Professional Document Services",
+  title: "International Documents Hub- Professional Document Services",
   description:
     "Professional visa, document, and travel services. VFS appointments, PCC apostille, air tickets, and more.",
   generator: "v0.app",
