@@ -239,7 +239,7 @@ export function ContactSection() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button
                   className="bg-white text-blue-600 hover:bg-gray-100 flex-1 btn-hover"
-                  onClick={() => handlePhoneCall("+977-01-5927859")}
+                  onClick={() => handlePhoneCall("+977-9823597859")}
                 >
                   <Phone className="mr-2 h-4 w-4" />
                   Call Now

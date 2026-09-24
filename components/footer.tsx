@@ -32,8 +32,8 @@ const contactInfo = [
   },
   {
     icon: Globe,
-    text: "www.intdocshub.com",
-    href: "https://www.intdocshub.com",
+    text: "www.intdocshub.com.np",
+    href: "https://www.intdocshub.com.np",
   },
   {
     icon: MapPin,
